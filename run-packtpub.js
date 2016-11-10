@@ -31,11 +31,21 @@ function scrapPacktpub(msg) {
             dt    = $("time[itemprop='datePublished']").html();
             pages = $("span[itemprop='numberOfPages']").html();
 
-            var det      = "\n● "+dt+" ("+pages+" pages)";
+            var det = "";
+            var lines = [];
+            if (dt) {
+              lines.push(dt);
+            }
+            if (pages) {
+              lines.push(pages + " pages");
+            }
+            if (lines.length > 0) {
+              det = "\n● " + lines.join(" ");
+            }
             var reqcover = request("http:"+cover);
 
             var options = {
-              caption: "● "+title.trim()+det,
+              caption: "● " + title.trim() + det,
               parse_mode: 'HTML',
               reply_markup: JSON.stringify({
                 inline_keyboard: [[{ text: "Claim Your Free eBook", url: "https://www.packtpub.com"+link}]]
@@ -49,7 +59,7 @@ function scrapPacktpub(msg) {
 
           }
         });
-      })("https://www.packtpub.com"+details, sendTo, title, cover, link);
+      })("https://www.packtpub.com" + details, sendTo, title, cover, link);
     }
   });
 }
