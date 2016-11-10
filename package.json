@@ -1,0 +1,25 @@
+{
+  "name": "packtpub-bot",
+  "version": "0.1.0",
+  "description": "PACKTpub Free Learning",
+  "main": "run-packtpub.js",
+  "keywords": [
+    "telegram",
+    "telegram bot",
+    "packtpub",
+    "bot"
+  ],
+  "author": "mohdrafhan <mohdrafhan@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cron": "^1.1.0",
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0",
+    "cheerio": "latest"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nullifye/packtpub-tg-bot.git"
+  }
+}
