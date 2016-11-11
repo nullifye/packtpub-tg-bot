@@ -37,11 +37,12 @@ function scrapPacktpub(msg) {
               lines.push(dt);
             }
             if (pages) {
-              lines.push(pages + " pages");
+              lines.push("(" + pages + " pages)");
             }
             if (lines.length > 0) {
               det = "\n● " + lines.join(" ");
             }
+
             var reqcover = request("http:"+cover);
 
             var options = {
