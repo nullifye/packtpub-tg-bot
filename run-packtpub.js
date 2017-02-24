@@ -18,7 +18,7 @@ function scrapPacktpub(msg) {
 
       var cover, title, link, details;
       cover   = $("div[class='dotd-main-book-image float-left'] a img").attr("src");
-      title   = $("div[class='dotd-title'] h2").html();
+      title   = $("div[class='dotd-title'] h2").text().trim();
       link    = $("div[class='float-left free-ebook'] a").attr("href");
       details = $("div[class='dotd-main-book-image float-left'] a").attr("href");
 
