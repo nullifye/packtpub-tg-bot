@@ -46,7 +46,7 @@ function scrapPacktpub(msg) {
             var reqcover = request("http:"+cover);
 
             var options = {
-              caption: "● " + title.trim() + det + "\nhttps://www.packtpub.com/packt/offers/free-learning",
+              caption: "● " + title + det + "\nhttps://www.packtpub.com/packt/offers/free-learning",
               parse_mode: 'HTML',
               reply_markup: JSON.stringify({
                 inline_keyboard: [[{ text: "Claim Your Free eBook", url: "https://www.packtpub.com"+link}]]
