@@ -28,8 +28,8 @@ function scrapPacktpub(msg) {
             var $ = cheerio.load(html2);
 
             var dt, pages;
-            dt    = $("time[itemprop='datePublished']").html();
-            pages = $("span[itemprop='numberOfPages']").html();
+            dt    = $("time[itemprop='datePublished']").text();
+            pages = $("span[itemprop='numberOfPages']").text();
 
             var det = "";
             var lines = [];
