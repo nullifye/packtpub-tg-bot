@@ -29,7 +29,7 @@ function scrapPacktpub(msg) {
 
             var dt, pages;
             dt    = $("time[itemprop='datePublished']").text();
-            pages = $("span[itemprop='numberOfPages']").text();
+            pages = $("span[itemprop='numberOfPages']").html();
 
             var det = "";
             var lines = [];
