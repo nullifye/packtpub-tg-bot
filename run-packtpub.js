@@ -16,10 +16,12 @@ function scrapPacktpub(msg) {
     if(!error) {
       var $ = cheerio.load(html);
 
-      var cover, title, link, details;
+      var cover, title, details, nid1, nid2;  //link
       cover   = $("div[class='dotd-main-book-image float-left'] a img").attr("src");
       title   = $("div[class='dotd-title'] h2").text().trim();
-      link    = $("div[class='float-left free-ebook'] a").attr("href");
+      //link    = $("div[class='float-left free-ebook'] a").attr("href");
+      nid1 = $("input#free-learning-register-claim-title-nid").attr("value");
+      nid2 = $("input#free-learning-register-node-id").attr("value");
       details = $("div[class='dotd-main-book-image float-left'] a").attr("href");
 
       (function(url, sendTo, title, cover, link) {
@@ -49,7 +51,7 @@ function scrapPacktpub(msg) {
               caption: "● " + title + det + "\nhttps://www.packtpub.com/packt/offers/free-learning",
               parse_mode: 'HTML',
               reply_markup: JSON.stringify({
-                inline_keyboard: [[{ text: "Claim Your Free eBook", url: "https://www.packtpub.com"+link}]]
+                inline_keyboard: [[{ text: "Claim Your Free eBook", url: "https://www.packtpub.com/freelearning-claim/"+nid1+"/"+nid2}]]
               })
             };
             bot.sendPhoto(sendTo, reqcover, options).then(function (sended) {
